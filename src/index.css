@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Gorditas-Bold';
+    src: url('./Font/Gorditas-Bold.ttf');
+}
+.slick-slide div {
+    outline: none;
+}
+.mainSection{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.active {
+    color: #3056DB;
+}
+.btn{
+    transition: transform 1s , opacity 1s;
+    transform: translateY(100%);
+    opacity: 0;
+    background-color:#3056DB ;
+}
+.card:hover .btn{
+    transform: translateY(0);
+    opacity: 1;
+}
+[type='checkbox']:focus{
+    --tw-ring-shadow:none;
+}
+@media all and (max-width: 1024px) {
+    .btn{
+        transition: none;
+        transform: translateY(0);
+        opacity: 1;
+        background-color:#3056DB ;
+    }
+}
