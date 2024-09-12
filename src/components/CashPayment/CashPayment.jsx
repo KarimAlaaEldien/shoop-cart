@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ export default function CashPayment() {
 
     const [errorMessage, seteErrorMessage] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const { cartId, editToClearUI } = useContext(cartContext)
+    const { cartId, editToClearUI } = useContext(cartContext);
     const [allCities, setAllCities] = useState([]);
     const [isclicked, setIsclicked] = useState(false);
     const [paymentType, setPaymentType] = useState(null);
@@ -24,11 +24,9 @@ export default function CashPayment() {
     let { state } = useLocation();
 
     useEffect(() => {
-        axios.get('../../../src/jsonFile/allCityInEgypt.json')
+        axios.get('../../../public/jsonFile/allCityInEgypt.json')
             .then((res) => {
                 setAllCities(res.data);
-                console.log(res.data);
-
             })
             .catch((error) => {
                 console.error('Error loading cities:', error);
@@ -64,7 +62,6 @@ export default function CashPayment() {
                 position: 'top-right',
 
             });
-            console.log(res);
             setIsclicked(false)
             CashFormik.resetForm();
             editToClearUI();
@@ -80,7 +77,6 @@ export default function CashPayment() {
 
         })
             .catch((error) => {
-                console.log(error);
                 toast.error('A problem occurred while creating the request')
                 setIsclicked(false)
                 setTimeout(() => {
@@ -124,7 +120,6 @@ export default function CashPayment() {
 
         })
             .catch((error) => {
-                console.log(error);
                 toast.error('A problem occurred while creating the request')
                 setIsclicked(false)
                 setTimeout(() => {
